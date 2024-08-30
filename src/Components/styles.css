@@ -13,7 +13,7 @@
     font-size: 28px;
 }
 .Menu_Item:active{
-    color: #EA940F;
+    color: #DA940F;
 }
 .Header {
     z-index: 99;
@@ -25,8 +25,7 @@
     align-items: center;
     padding:20px 40px;
     gap: 50px;
-    background-color: #312F2B;
-    
+    background-color: #312F2B;    
 }
 
 .Logo {
