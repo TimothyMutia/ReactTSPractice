@@ -1,6 +1,8 @@
+import './styles.css'
+
 const Learn = () => {
   return (
-    <div>Learn</div>
+    <div className="Learn">Learn</div>
   )
 }
 
