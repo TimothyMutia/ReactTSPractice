@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap');
 
-.Home{
+.Home {
   display:flex;
   flex-direction: column;
   gap: 50px;
 }
-.Body{
+.Body {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -14,7 +14,7 @@
   gap: 40px;
 }
 
-.Text_Section{
+.Text_Section {
   width:80%;
   font-family: "New Amsterdam", sans-serif;
   font-weight: 400;
@@ -25,7 +25,7 @@
   padding: 20px 20px 20px 20px;
 }
 
-.Hero_Container{
+.Hero_Container {
     height: 100vh;
     width: 100vw;
     background-image: url('src/assets/background (1).jpg');
@@ -42,14 +42,14 @@
     
 }
 
-.Hero_Image{
+.Hero_Image {
     width: 100vw;
     height: 100vh;
     opacity: 0.75;
 }
 
-.Hero_Header{
-    width: 300px;
+.Hero_Header {
+    width: 350px;
     height: 150px;
     border-radius: 20px;
     background-color:#312F2B ;
@@ -59,21 +59,8 @@
     text-align: center;
 }
 
-.About{
-  width: 100vw;
-  height:100vh;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-}
-.Learn{
-  width: 100vw;
-  height:100vh;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-}
-.Contact{
+
+.About, .Learn, .Contact, .Error {
   width: 100vw;
   height:100vh;
   display:flex;
@@ -81,7 +68,20 @@
   align-items: center;
 }
 
+.Error{
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  font-size: 100px;
+}
 
+
+@media (max-width: 1024px){
+  .Hero_Header{
+    width:280px;
+    height:120px;
+  }
+}
 
 /*
 #0FA6FA

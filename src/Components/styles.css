@@ -1,23 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap');
 
-.Menu{
+.Menu {
     display: flex;
     flex-direction: row;
     gap: 40px;
     
 }
-.Menu_Items{
+.Menu_Items {
     font-family: 'New Amsterdam', sans-serif;
     letter-spacing: 1.2px;
     color:#FA940F ;
     font-size: 28px;
 }
-
 .Menu_Item:active{
-    font-weight: 600;
+    color: #EA940F;
 }
-
-.Header{
+.Header {
     z-index: 99;
     height: 40px;
     display: flex;
@@ -31,22 +29,33 @@
     
 }
 
-.Logo{
+.Logo {
     width: 60px;
     height: 60px;
 }
+.Logo:active{
+    opacity: 0.5;
+}
 
-@media (max-width: 767px){
+@media (max-width: 1024px){
     .Menu_Item{
         font-size: 22px;
         line-height: 1.2em;
         letter-spacing: 0.8px;
     }
+}
+@media (max-width: 767px){
+    .Menu_Item{
+        font-size: 17px;
+        line-height: 1.2em;
+        word-spacing: 0.2px;
+        letter-spacing: 0.8px;
+    }
     .Menu{
-        gap: 20px;
+        gap: 5px;
     }
     .Header{
-        gap:25px;
+        gap:10px;
     }
 }
 
@@ -56,4 +65,5 @@
 #FA940F
 #4181A5
 #312F2B
+#EA940F
 */

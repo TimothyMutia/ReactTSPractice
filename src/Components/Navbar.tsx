@@ -1,5 +1,6 @@
 import './styles.css'
 import menu_Items from './menu_Items'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -8,7 +9,7 @@ const Navbar = () => {
         {menu_Items.map((menu_Items, index) => {
             return (
             <li className="Menu_Items" key={index}>
-                <a href={menu_Items.url}>{menu_Items.title}</a>
+                <Link className="Menu_Item" to={menu_Items.url}> {menu_Items.title} </Link>
             </li>
             );
         })}

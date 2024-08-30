@@ -1,8 +1,9 @@
 import React from 'react'
+import '../Views/styles.css'
 
 const Error_Page:React.FC = () => {
   return (
-    <div>Error!!!</div>
+    <div className='Error'>Error!!!</div>
   )
 }
 
