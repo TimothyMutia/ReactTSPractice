@@ -1,38 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap');
 
 .Menu{
-    position:sticky;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    
+}
+.Menu_Items{
+    font-family: 'New Amsterdam', sans-serif;
+    letter-spacing: 1.2px;
+    color:#FA940F ;
+    font-size: 28px;
 }
 
-.Hero_Container{
-    height: 100vh;
-    width: 100vw;
-    background-image: url('src/assets/background (1).jpg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.Menu_Item:active{
+    font-weight: 600;
+}
+
+.Header{
+    z-index: 99;
+    height: 40px;
     display: flex;
-    justify-content: center;
+    position:sticky;
+    top:0;
+    flex-direction: row;
     align-items: center;
+    padding:20px 40px;
+    gap: 50px;
+    background-color: #312F2B;
     
 }
 
-.Hero_Image{
-    width: 100vw;
-    height: 100vh;
-    opacity: 0.75;
+.Logo{
+    width: 60px;
+    height: 60px;
 }
 
-.Hero_Header{
-    width: 300px;
-    height: 150px;
-    border-radius: 20px;
-    background-color:#312F2B ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+@media (max-width: 767px){
+    .Menu_Item{
+        font-size: 22px;
+        line-height: 1.2em;
+        letter-spacing: 0.8px;
+    }
+    .Menu{
+        gap: 20px;
+    }
+    .Header{
+        gap:25px;
+    }
 }
+
 /*
 #0FA6FA
 #BA823A
