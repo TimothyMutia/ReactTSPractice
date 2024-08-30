@@ -5,15 +5,12 @@ import '../Components/styles.css'
 const Home = () => {
   return (
     
-    <div>
-      <div>
+    <div className='Home'>
         <div className='Hero_Container'>
-
           <div className='Hero_Header'>
-            <h1 className='H1'>Ay kalimot himo Menu</h1>
+            <h1 className='H1'>Fire this ship</h1>
           </div>
         </div>
-      </div>
       <div className="Body">
         <div className='Text_Section'>
           <div>

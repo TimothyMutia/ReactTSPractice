@@ -1,23 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap');
 
-
+.Home{
+  display:flex;
+  flex-direction: column;
+  gap: 50px;
+}
 .Body{
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 60px;
+  gap: 40px;
 }
 
 .Text_Section{
-  height:50%;
+  width:80%;
   font-family: "New Amsterdam", sans-serif;
   font-weight: 400;
   font-style: normal;
   text-align: center;
   align-content: center;
-  gap: 32px;
+  gap: 20px;
   padding: 20px 20px 20px 20px;
 }
 
@@ -32,6 +36,9 @@
     justify-content: center;
     align-items: center;
     margin-top: -80px;
+    border-bottom-style: solid;
+    border-bottom-width: 40px;
+    border-bottom-color:#FA940F ;
     
 }
 
