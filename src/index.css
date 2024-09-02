@@ -8,6 +8,12 @@
   line-height: 1.5;
   font-weight: 400;
 
+  --primary:   #0FA6FA;
+  --secondary: #FA940F;
+  --text:      #BA823A;
+  --misc:      #4181A5;
+  --shapes:    #312F2B;
+
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -16,6 +22,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
+
 }
 
 a {
@@ -34,17 +43,17 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-.H1{
+h1{
   font-size: 64px;
   line-height: 32px;
   color: #0FA6FA;
   font-family: var(--Sans_Serif_font), sans-serif;
 }
 
-.H2{
+h2{
   font-size: 44px;
   line-height: 24px;
-  color: #664633;
+  color: var(--secondary);
 }
 
 .paragraph{
@@ -56,7 +65,7 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .H1 {
+  h1 {
     font-size: 35px;
     line-height: 1.2em;
   }
