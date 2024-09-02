@@ -14,10 +14,10 @@ const Home = () => {
       <div className="Body">
         <div className='Text_Section'>
           <div>
-            <h1>I am Atomic</h1>
+            <h1>Lorem Ipsum Master</h1>
           </div>
           <div>
-            <h2>I love Atoms</h2>
+            <h2>I love Lorem Ipsum</h2>
             <p className='paragraph'>
               Lorem Lorem ipsum, dolor sit amet consectetur
               adipisicing elit. Temporibus, quasi. Explicabo 
