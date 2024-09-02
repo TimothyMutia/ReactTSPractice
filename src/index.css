@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Rhodium+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap');
+
 :root {
+  --Sans_Serif_font: "New Amsterdam";
+  --Serif_font: "Rhodium Libre";
   font-family: "New Amsterdam", sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -33,7 +38,7 @@ body {
   font-size: 64px;
   line-height: 32px;
   color: #0FA6FA;
-  font-family: "New Amsterdam", sans-serif;
+  font-family: var(--Sans_Serif_font), sans-serif;
 }
 
 .H2{
@@ -44,10 +49,10 @@ body {
 
 .paragraph{
   font-size: 20px;
-  line-height: 24px;
+  line-height: 32px;
   color: #664633;
   text-align: justify;
-  letter-spacing: 0.6px;
+  letter-spacing: 1px;
 }
 
 @media (max-width: 1024px) {

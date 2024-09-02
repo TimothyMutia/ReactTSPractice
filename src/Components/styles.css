@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap');
-
 .Menu {
     display: flex;
     flex-direction: row;
-    gap: 40px;
-    
+    gap: 40px;    
 }
 .Menu_Items {
-    font-family: 'New Amsterdam', sans-serif;
+    font-family: var(--Sans_Serif_font), sans-serif;
     letter-spacing: 1.2px;
     color:#FA940F ;
     font-size: 28px;
