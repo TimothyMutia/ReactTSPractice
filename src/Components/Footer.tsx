@@ -9,7 +9,8 @@ const Footer = () => {
   return (
     <div className='Footer'>
         <div>
-            <img src='src\assets\react.svg' className='Logo'></img>  
+            <img src='src\assets\react.svg' className='Logo'></img>
+            <h2> Lorem Ipsum Master </h2>  
         </div>
         <div>
             <p className='Footer_Text'>Dont forget to be acquainted with the one and only Lorem Ipsum Master</p>
