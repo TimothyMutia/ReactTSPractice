@@ -13,14 +13,14 @@
 }
 
 .Text_Section {
-  width:80%;
   font-family: var(--Serif_font, "Times New Roman");
   font-weight: 400;
   font-style: normal;
   text-align: center;
   align-content: center;
   gap: 20px;
-  padding: 20px 20px 20px 20px;
+  padding: 40px 100px;
+  box-sizing: border-box;
 }
 
 .Hero_Container {
@@ -36,8 +36,7 @@
     margin-top: -80px;
     border-bottom-style: solid;
     border-bottom-width: 40px;
-    border-bottom-color:#FA940F ;
-    
+    border-bottom-color:var(--secondary) ;    
 }
 
 .Hero_Image {
@@ -50,7 +49,7 @@
     width: 350px;
     height: 150px;
     border-radius: 20px;
-    background-color:#312F2B ;
+    background-color:var(--shapes) ;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,12 +78,13 @@
     width:280px;
     height:120px;
   }
+  .Text_Section{
+    padding:80px;
+  }
+}
+@media (max-width: 767px){
+  .Text_Section{
+    padding:40px;
+  }
 }
 
-/*
-#0FA6FA
-#BA823A
-#FA940F
-#4181A5
-#7D776F
-*/
