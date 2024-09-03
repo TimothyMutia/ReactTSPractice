@@ -4,12 +4,15 @@ import 'react-social-icons/facebook'
 import 'react-social-icons/twitch'
 import 'react-social-icons/youtube'
 import 'react-social-icons/instagram'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
     <div className='Footer'>
         <div>
-            <img src='src\assets\react.svg' className='Logo'></img>
+            <Link to="/">
+                <img src='src\assets\react.svg' className='Logo'></img>
+            </Link>
             <h2> Lorem Ipsum Master </h2>  
         </div>
         <div>

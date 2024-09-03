@@ -27,23 +27,18 @@
     height: 100vh;
     width: 100vw;
     background-image: url('src/assets/background (1).jpg');
-    filter: grayscale(0.3);
+    filter: grayscale(0.25);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
+    z-index: -1;
     justify-content: center;
     align-items: center;
     margin-top: -80px;
     border-bottom-style: solid;
     border-bottom-width: 40px;
     border-bottom-color:var(--secondary) ;    
-}
-
-.Hero_Image {
-    width: 100vw;
-    height: 100vh;
-    opacity: 0.75;
 }
 
 .Hero_Header {
@@ -55,6 +50,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    filter: initial;
+    z-index: 1;
 }
 
 
