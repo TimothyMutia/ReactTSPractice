@@ -10,8 +10,8 @@
 
   --primary:   #0FA6FA;
   --secondary: #FA940F;
-  --text:      #BA823A;
-  --misc:      #4181A5;
+  --text:      #62431A;
+  --darkText:  #0796C0;
   --shapes:    #312F2B;
 
   color-scheme: light dark;
@@ -59,9 +59,13 @@ h2{
 .paragraph{
   font-size: 20px;
   line-height: 32px;
-  color: #664633;
+  color: var(--text);
   text-align: justify;
   letter-spacing: 1px;
+
+  &.dark{
+    color:var(--darkText);
+  }
 }
 
 @media (max-width: 1024px) {
