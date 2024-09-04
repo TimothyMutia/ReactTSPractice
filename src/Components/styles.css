@@ -88,3 +88,68 @@
         gap:10px;
     }
 }
+
+
+/*theme_Button*/
+.Theme_Button{ 
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    position:absolute;
+    align-self: center;
+    right:5%;
+    z-index: 99;
+}
+
+#switch{
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+  
+.slider {
+    cursor: pointer;
+    width: 60px;
+    height: 30px;
+    background-color: white;
+    display: block;
+    border-radius: 40px;
+    position: relative;
+
+    &.dark{
+        background-color: black;
+    }
+    &.dark::after{
+        width: 26px;
+        height: 26px;
+        content:'';
+        background-image: url(../assets/moon.svg);
+        align-content: center;
+        background-color: white;
+        transform: translateX(26px);
+    }
+  }
+  
+.slider::after {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    content:"";
+    background-image: url(../assets/sun.svg);
+    background-size: 75% 75%;
+    background-position:center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top:2px;
+    left:4px;
+    width: 26px;
+    height: 26px;
+    background-color: black;
+    border-radius: 100%;
+    transition: 0.3s;
+  }
+.slider:active:after {
+    background-color: grey;
+  }
+

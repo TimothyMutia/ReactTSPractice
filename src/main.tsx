@@ -8,6 +8,7 @@ import Contact from './Views/Contact.tsx';
 import About from './Views/About.tsx';
 import Learn from './Views/Learn.tsx';
 import Error_Page from './Components/Error_Page.tsx';
+import { ThemeProvider } from './Contexts/ThemeContext.tsx';
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </StrictMode>,
 )

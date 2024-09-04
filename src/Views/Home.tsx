@@ -1,24 +1,26 @@
 
 import './styles.css'
 import '../Components/styles.css'
+import { useTheme } from '../Contexts/ThemeContext'
 
 const Home = () => {
+  const {theme} = useTheme();
   return (
     
-    <div className='Home'>
+    <div className={theme === 'light' ? 'Home' : 'Home dark'}>
         <div className='Hero_Container'>
           <div className='Hero_Header'>
             <h1 className='H1'>Fire this ship</h1>
           </div>
         </div>
-      <div className="Body">
+      <div className='Body'>
         <div className='Text_Section'>
           <div>
             <h1>Lorem Ipsum Master</h1>
           </div>
           <div>
             <h2>I love Lorem Ipsum</h2>
-            <p className='paragraph'>
+            <p className={theme === 'light' ? 'paragraph' : 'paragraph dark'}>
               Lorem Lorem ipsum, dolor sit amet consectetur
               adipisicing elit. Temporibus, quasi. Explicabo 
               aspernatur excepturi autem nihil molestiae! 
