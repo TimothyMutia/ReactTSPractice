@@ -1,10 +1,22 @@
-.Home {
+.Home, .About, .Learn, .Contact, .Error {
+  width: 100vw;
   display:flex;
   flex-direction: column;
-  gap: 50px;
+  align-items:center;
   background-color: white;
   &.dark{
     background-color: #242424;
+  }
+}
+
+.Home {
+  gap: 50px;
+}
+.About, .Learn, .Contact, .Error{
+  height:100vh;
+  color:#242424;
+  &.dark{
+    color:white;
   }
 }
 .Body {
@@ -15,10 +27,7 @@
   align-items: center;
   gap: 40px;
 
-
-
 }
-
 .Text_Section {
   font-family: var(--Serif_font, "Times New Roman");
   font-weight: 400;
@@ -60,22 +69,12 @@
     filter: initial;
 }
 
-
-.About, .Learn, .Contact, .Error {
-  width: 100vw;
-  height:100vh;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .Error{
   text-align: center;
   align-content: center;
   justify-content: center;
   font-size: 100px;
 }
-
 
 @media (max-width: 1024px){
   .Hero_Header{
