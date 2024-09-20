@@ -1,4 +1,4 @@
-.Home, .About, .Learn, .Contact, .Error {
+.Home, .About, .Devices, .Contact, .Error {
   width: 100vw;
   display:flex;
   flex-direction: column;
@@ -12,13 +12,17 @@
 .Home {
   gap: 50px;
 }
-.About, .Learn, .Contact, .Error{
-  height:100vh;
+.About, .Devices, .Contact, .Error{
+  height:100%;
   color:#242424;
+  padding-bottom: 20px;
   &.dark{
     color:white;
   }
 }
+
+
+/* Home */
 .Body {
   width: 100%;
   height: 100%;
@@ -67,6 +71,13 @@
     align-items: center;
     text-align: center;
     filter: initial;
+}
+
+/* Devices */
+
+.deviceContainer {
+  display: flex;
+  flex-direction: column;
 }
 
 .Error{

@@ -14,8 +14,8 @@ const menu_Items:menu_Item[] = [
         url: '/About'
     },
     {
-        title: 'Learn',
-        url: '/Learn'
+        title: 'Devices',
+        url: '/Devices'
     },
     {
         title: 'Contact Me',
