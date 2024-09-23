@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"; 
-import { postDevice, Device } from "../Api/deviceApi";
+import { postDevice} from "../Api/deviceApi";
 import { useState } from "react"; 
+import { Device } from "../types/global";
 
 const Add_Device_Form = () => {
     const [form, setForm] = useState<Device>({ 

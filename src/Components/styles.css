@@ -153,3 +153,17 @@
     background-color: grey;
   }
 
+.dropdown {
+    background-color: var(--shapes);
+
+}
+.dropdown_Button {
+    background-color: var(--shapes);
+    width:40px;
+    height: 20px;
+    color: var(--secondary);
+}
+.dropdown_Button:hover {
+    background-color: white;
+    color:var(--shapes);
+}

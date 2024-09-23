@@ -80,6 +80,11 @@
   flex-direction: column;
 }
 
+.dropdown {
+  border-color: var(--shapes);
+  border-width: 1px;
+}
+
 .Error{
   text-align: center;
   align-content: center;

@@ -1,9 +1,6 @@
 import React, { createContext, useContext, useState  } from 'react'
+import { ThemeContextType } from '../types/global';
 
-interface ThemeContextType { 
-    theme: string; 
-    setTheme: React.Dispatch<React.SetStateAction<string>>; 
-    }
 const ThemeContext = createContext<ThemeContextType | undefined> (undefined)
 
 export function ThemeProvider ({children}: {children:React.ReactNode}){
