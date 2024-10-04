@@ -1,5 +1,4 @@
 import { useTheme } from '../Contexts/ThemeContext'
-import './styles.css'
 import { useQuery } from '@tanstack/react-query';
 import {fetchDevices} from '../Api/deviceApi';
 import { Device } from '../types/global';
@@ -15,10 +14,11 @@ const Devices = () => {
   })
 
     return (
-    <div className={theme === 'light' ? 'Devices' : 'Devices dark'} style={{gap:"20px"}}>
+    <div className={theme === 'light' ? 'light' : 'dark'}>
+      <div className='h-full text-dark pb-5 dark:text-white gap-5 flex flex-col items-center'>
       <Add_Device_Form/>
       <h2> List of Devices </h2>
-        <div className='deviceContainer'> 
+        <div className='flex flex-col'> 
           {isPending ? 
             <div> Loading... </div>
           : <span></span>}
@@ -34,7 +34,7 @@ const Devices = () => {
           : <span></span>}
             
         </div> 
-    
+      </div>
     </div>
   )
 }

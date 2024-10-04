@@ -31,8 +31,8 @@ export async function updateDevice(data:Device){
   return response.json();
 }
 
-export async function deleteDevice(id:number){
-  const response = await fetch("https://api.restful-api.dev/objects/" + id,{
+export async function deleteDevice(data:Device){
+  const response = await fetch("https://api.restful-api.dev/objects/" + data.id,{
     method:"DELETE",
   })
   if(!response.ok){

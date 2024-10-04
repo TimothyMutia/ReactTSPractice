@@ -35,12 +35,13 @@ const Add_Device_Form = () => {
     }
 
     return(
-        <form onSubmit={handleSubmit}> 
+        <form className='p-3 flex flex-col gap-1 border-solid border-2 border-grey' onSubmit={handleSubmit}> 
             <div> 
                 <label>Name: </label> 
                 <input 
                 type="text" 
                 value={form.name || ""} 
+                className="border-solid border-2"
                 onChange={(e) => setForm({ ...form, name: e.target.value })} 
                 /> 
             </div> 
@@ -49,6 +50,7 @@ const Add_Device_Form = () => {
                 <input 
                 type="text" 
                 value={form.data?.color || ""} 
+                className="border-solid border-2"
                 onChange={(e) => 
                 setForm({ ...form, data: { ...form.data, color: e.target.value 
                 }}) 
@@ -60,6 +62,7 @@ const Add_Device_Form = () => {
                 <input 
                 type="number" 
                 value={form.data?.price || ""} 
+                className="border-solid border-2"
                 onChange={(e) => 
                 setForm({ 
                 ...form, 
@@ -68,7 +71,7 @@ const Add_Device_Form = () => {
                 } 
                 /> 
             </div> 
-            <button type="submit"> 
+            <button type="submit" className="bg-light-orange text-grey font-bold w-1/2 self-center rounded-md"> 
             Add Device 
             </button> 
         </form> 
