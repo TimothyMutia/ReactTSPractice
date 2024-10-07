@@ -1,10 +1,11 @@
 import { useTheme } from '../Contexts/ThemeContext'
-import './styles.css'
 
 const Contact = () => {
   const {theme} = useTheme();
   return (
-    <div className={theme === 'light' ? 'Contact' : 'Contact dark'}>Contact</div>
+    <div className={theme === 'light' ? 'light' : 'dark'}>
+      <div className='h-full text-dark pb-5 dark:text-white'>Contact</div>
+    </div>
   )
 }
 

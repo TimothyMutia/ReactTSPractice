@@ -1,10 +1,14 @@
-import './styles.css'
+
 import { useTheme } from '../Contexts/ThemeContext'
 
 const About = () => {
   const {theme} = useTheme();
   return (
-    <div className={theme === 'light' ? 'About' : 'About dark'}>About</div>
+    <div className={theme === 'light' ? 'light' : 'dark'}>
+      <div className='h-full text-dark pb-5 dark:text-white'>
+          About
+      </div>
+    </div>
   )
 }
 

@@ -6,10 +6,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './Views/Home.tsx';
 import Contact from './Views/Contact.tsx';
 import About from './Views/About.tsx';
-import Learn from './Views/Learn.tsx';
+import Devices from './Views/Devices.tsx';
 import Error_Page from './Components/Error_Page.tsx';
 import { ThemeProvider } from './Contexts/ThemeContext.tsx';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"; 
 
+const queryClient = new QueryClient(); 
 
 const router = createBrowserRouter([
   {
@@ -25,8 +27,8 @@ const router = createBrowserRouter([
         element: <About/>,
       },
       {
-        path: "Learn",
-        element: <Learn/>,
+        path: "Devices",
+        element: <Devices/>,
       },
       {
         path: "Contact",
@@ -38,8 +40,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider>
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </QueryClientProvider>
+
   </StrictMode>,
 )
