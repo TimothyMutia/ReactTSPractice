@@ -15,7 +15,7 @@ const Devices = () => {
 
     return (
     <div className={theme === 'light' ? 'light' : 'dark'}>
-      <div className='h-full text-dark pb-5 dark:text-white gap-5 flex flex-col items-center'>
+      <div className='h-full text-dark pb-5 dark:text-white dark:bg-dark gap-5 flex flex-col items-center'>
       <Add_Device_Form/>
       <h2> List of Devices </h2>
         <div className='flex flex-col'> 
@@ -28,7 +28,7 @@ const Devices = () => {
           {isSuccess ? 
             <div>
               {data?.map((device:Device) => ( 
-                <Item device={device}/>
+                <Item key={device.id} device={device}/>
               ))}
             </div>
           : <span></span>}

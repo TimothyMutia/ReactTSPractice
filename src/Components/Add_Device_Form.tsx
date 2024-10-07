@@ -41,7 +41,7 @@ const Add_Device_Form = () => {
                 <input 
                 type="text" 
                 value={form.name || ""} 
-                className="border-solid border-2"
+                className="border-solid border-slate-400 border-2"
                 onChange={(e) => setForm({ ...form, name: e.target.value })} 
                 /> 
             </div> 
@@ -50,7 +50,7 @@ const Add_Device_Form = () => {
                 <input 
                 type="text" 
                 value={form.data?.color || ""} 
-                className="border-solid border-2"
+                className="border-solid border-slate-400 border-2"
                 onChange={(e) => 
                 setForm({ ...form, data: { ...form.data, color: e.target.value 
                 }}) 
@@ -62,7 +62,7 @@ const Add_Device_Form = () => {
                 <input 
                 type="number" 
                 value={form.data?.price || ""} 
-                className="border-solid border-2"
+                className="border-solid border-slate-400 border-2"
                 onChange={(e) => 
                 setForm({ 
                 ...form, 

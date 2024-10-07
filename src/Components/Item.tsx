@@ -2,106 +2,61 @@ import React from 'react'
 import { Device, deviceProps } from '../types/global';
 import { useState } from 'react';
 import { updateDevice, deleteDevice } from '../Api/deviceApi';
-import { useMutation } from '@tanstack/react-query';
-import { confirm } from './confirm'
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { BsThreeDots } from "react-icons/bs";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from './ui/alert-dialog';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from './ui/dialog';
+import { Button } from "@/components/ui/button";
+import { Label } from './ui/label';
+import { Input } from './ui/input';
+import { useTheme } from '@/Contexts/ThemeContext';
 
 const Item:React.FC<deviceProps> = ({device}) => {
-
-    const [editing, setEditing] = useState(false);
+    
     const [open, setOpen] = useState(false);
+    const {theme} = useTheme();
+    const [editing, setEditing] = useState(false);
     const [form, setForm] = useState<Device>({ 
-        name: "", 
+        id: device.id,
+        name: device.name, 
         data: { 
-          color: "", 
-          price: 0, 
+          color: device.data?.color, 
+          price: device.data?.price, 
         }, 
       });
-
+      
+      const queryClient = useQueryClient(); 
       const mutation = useMutation({
-        mutationFn: updateDevice
-      })
+       mutationFn: updateDevice,
+       onSuccess: () => { 
+        queryClient.invalidateQueries({ queryKey: ["devices"] }); 
+      }, 
+     })
       const deleteMutation = useMutation({
-        mutationFn: deleteDevice
-      })
+        mutationFn: deleteDevice,
+        onSuccess: () => { 
+          queryClient.invalidateQueries({ queryKey: ["devices"] }); 
+        }, 
+     })
+      const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        mutation.mutate(form)
+        setForm({
+          id: device.id,
+          name: device.name, 
+          data: { 
+            color: device.data?.color, 
+            price: device.data?.price, 
+          }, 
+        })
+        setEditing(false)
+      }
 
-      const handleEdit = () => {
-        if(editing) {setEditing(false)}
-        else{
-          setEditing(true)
-          setOpen(false)
-          setForm({
-            name: device.name,
-            data:{
-              color: device.data?.color,
-              price: device.data?.price,
-            }
-          })
-        }
-      }
-      const handleToggle = () => {
-        if(open) {setOpen(false)}
-        else{setOpen(true)}
-      }
-      const handleDelete = async () => {
-      if ( await confirm ({
-        confirmation: "Are you Sure?, this action cannot be undone"
-      })){ 
-        if(device.id){
-        deleteMutation.mutate(device)
-        }else{
-          alert("Device does not exist, or the id is wrong")
-        }}else{
-          console.log("cancelled")
-        }
-      }
-      const handleSubmit = (e: React.FormEvent) => { 
-        e.preventDefault(); 
-        mutation.mutate(form);
-         // Invoke mutate and pass the form data 
-        setForm({
-            name: "", 
-            data: { 
-              color: "", 
-              price: 0, 
-            },    
-        })
-        setEditing(false)
-        setOpen(false)
-      }
-      const handleCancel = () => {
-        setEditing(false)
-        setOpen(false)
-        setForm({
-            name: "", 
-            data: { 
-              color: "", 
-              price: 0, 
-            },  
-        })
-      }
   return (
+  <div className={theme === 'light' ? 'light' : 'dark'}>
     <div key={device.id} className='flex flex-row justify-between items-center p-4 border-[1px] border-solid border-[#ccc] rounded-r-md'> 
     
-    {editing ? 
-    <form className='flex flex-col w-full justify-start' onSubmit={handleSubmit}>
-        <div>
-            <label>{device.name}</label>
-            <textarea value={device.name}></textarea>
-        </div>
-        <div>
-            <label>{device.data?.color}</label>
-            <textarea value={device.data?.color}></textarea>
-        </div>
-        <div>
-            <label>{device.data?.color}</label>
-            <textarea value={device.data?.price}></textarea>
-        </div>
-        <div>
-            <button type='submit'>save</button>
-            <button onClick={handleCancel}>cancel</button>
-        </div>
-    </form> : 
-    <>
       <div className='flex flex-col items-baseline w-full'> 
         <p className='font-bold mb-2'>   
         {device.name} 
@@ -115,24 +70,70 @@ const Item:React.FC<deviceProps> = ({device}) => {
         {device.data?.price && `$${device.data.price}`} 
         </p> 
       </div>
+      <DropdownMenu>
+        <DropdownMenuTrigger>
+          <BsThreeDots className=''/>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuItem onClick={() => setEditing(true)}> Edit </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => setOpen(true)}> delete </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
 
-      <div className={open ? 'bg-grey': ''} style={{display:'flex', flexDirection:'column', alignItems:'flex-start', justifyContent:'flex-start', padding:'0px'}}>
-      {open ? 
-      <>
-        <button className='h-[10px] w-[10px] bg-dropdown ' onClick={handleToggle}></button>
-        <button className='bg-grey w-10 h-5 text-light-orange self-start hover:bg-white hover:text-grey' onClick={handleEdit}>
-          edit
-        </button>
-        <button className='bg-grey w-10 h-5 text-light-orange self-start' onClick={handleDelete} >
-          delete
-        </button>
-      </>:
-        <button className='h-[10px] w-[10px] bg-dropdown' onClick={handleToggle}></button>
-      }
-      </div> 
+        <AlertDialog open={open} onOpenChange={setOpen} >
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+              <AlertDialogDescription>
+                This action cannot be undone. This will permanently delete this entry from our servers.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel onClick={() => setOpen(false)}>Cancel</AlertDialogCancel>
+              <AlertDialogAction onClick={async() => {
+                  deleteMutation.mutate(device)
+                  setOpen(false)
+              }}>Continue</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+      </AlertDialog>
 
-    </>
-    } 
+    <Dialog open={editing} onOpenChange={setEditing}>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Edit profile</DialogTitle>
+          <DialogDescription>
+            Make changes to your profile here. Click save when you're done.
+          </DialogDescription>
+        </DialogHeader>
+        <form onSubmit={handleSubmit}>
+        <div className="grid gap-4 py-4">
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="name" className="text-right">
+              Name
+            </Label>
+            <Input id="name" type='text' value={form.name || ""} className="col-span-3" onChange={(e) => setForm({ ...form, name: e.target.value })}  />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="name" className="text-right">
+              Color
+            </Label>
+            <Input id="name" type='text' value={form.data?.color || ""} className="col-span-3" onChange={(e) => setForm({ ...form, data: {...form.data, color: e.target.value}})} />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="username" className="text-right">
+              Price
+            </Label>
+            <Input id="username" value={form.data?.price || ""} type='number' className="col-span-3" onChange={(e) => setForm({ ...form, data: {...form.data, price: Number(e.target.value)}})} />
+          </div>
+        </div>
+        <DialogFooter>
+          <Button type="submit">Save changes</Button>
+        </DialogFooter>
+        </form>
+      </DialogContent>
+    </Dialog>
+  </div>
 </div>
   )
 }
