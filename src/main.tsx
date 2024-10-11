@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Login from './Views/Login.tsx';
 import Home from './Views/Home.tsx';
 import Contact from './Views/Contact.tsx';
 import About from './Views/About.tsx';
@@ -34,9 +35,13 @@ const router = createBrowserRouter([
         path: "Contact",
         element: <Contact/>,
       },
+      {
+        path: "Login",
+        element: <Login/>,
+      }
     ],
-  },
-]);
+  }
+]);   
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

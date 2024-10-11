@@ -6,10 +6,8 @@ import { Device } from "../types/global";
 const Add_Device_Form = () => {
     const [form, setForm] = useState<Device>({ 
         name: "", 
-        data: { 
-          color: "", 
-          price: 0, 
-        }, 
+        color: "", 
+        price: 0,  
       }); 
        
       // Mutation setup 
@@ -27,10 +25,8 @@ const Add_Device_Form = () => {
       mutation.mutate(form); // Invoke mutate and pass the form data 
       setForm({
         name: "", 
-        data: { 
         color: "", 
         price: 0, 
-        } 
       }); 
     }
 
@@ -49,26 +45,18 @@ const Add_Device_Form = () => {
                 <label>Color: </label> 
                 <input 
                 type="text" 
-                value={form.data?.color || ""} 
+                value={form.color || ""} 
                 className="border-solid border-slate-400 border-2"
-                onChange={(e) => 
-                setForm({ ...form, data: { ...form.data, color: e.target.value 
-                }}) 
-                } 
+                onChange={(e) => setForm({ ...form, color: e.target.value })} 
                 /> 
             </div> 
             <div> 
                 <label>Price: </label> 
                 <input 
                 type="number" 
-                value={form.data?.price || ""} 
+                value={form.price || ""} 
                 className="border-solid border-slate-400 border-2"
-                onChange={(e) => 
-                setForm({ 
-                ...form, 
-                data: { ...form.data, price: Number(e.target.value) }, 
-                }) 
-                } 
+                onChange={(e) => setForm({ ...form, price: Number(e.target.value) })} 
                 /> 
             </div> 
             <button type="submit" className="bg-light-orange text-grey font-bold w-1/2 self-center rounded-md"> 
