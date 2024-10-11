@@ -5,11 +5,9 @@ export interface ThemeContextType {
 
 export interface Device { 
     id?: number;
-    name?: string; 
-      data?: { 
-        color?: string; 
-        price?: number; 
-      }; 
+    name?: string;  
+    color?: string; 
+    price?: number; 
     } 
 
 export interface deviceProps{

@@ -7,7 +7,7 @@ import { BsThreeDots } from "react-icons/bs";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from './ui/alert-dialog';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from './ui/dialog';
-import { Button } from "@/components/ui/button";
+import { Button } from "@/Components/ui/button";
 import { Label } from './ui/label';
 import { Input } from './ui/input';
 import { useTheme } from '@/Contexts/ThemeContext';
@@ -20,10 +20,8 @@ const Item:React.FC<deviceProps> = ({device}) => {
     const [form, setForm] = useState<Device>({ 
         id: device.id,
         name: device.name, 
-        data: { 
-          color: device.data?.color, 
-          price: device.data?.price, 
-        }, 
+          color: device.color, 
+          price: device.price, 
       });
       
       const queryClient = useQueryClient(); 
@@ -45,10 +43,8 @@ const Item:React.FC<deviceProps> = ({device}) => {
         setForm({
           id: device.id,
           name: device.name, 
-          data: { 
-            color: device.data?.color, 
-            price: device.data?.price, 
-          }, 
+          color: device.color, 
+          price: device.price, 
         })
         setEditing(false)
       }
@@ -62,12 +58,12 @@ const Item:React.FC<deviceProps> = ({device}) => {
         {device.name} 
         </p> 
         <p className='m-0 text-xs'> 
-        {device.data?.color} 
+        {device.color} 
         </p> 
       </div> 
       <div className='w-full self-baseline'> 
         <p className='font-bold mb-2'> 
-        {device.data?.price && `$${device.data.price}`} 
+        {device.price && `$${device.price}`} 
         </p> 
       </div>
       <DropdownMenu>
@@ -118,13 +114,13 @@ const Item:React.FC<deviceProps> = ({device}) => {
             <Label htmlFor="name" className="text-right">
               Color
             </Label>
-            <Input id="name" type='text' value={form.data?.color || ""} className="col-span-3" onChange={(e) => setForm({ ...form, data: {...form.data, color: e.target.value}})} />
+            <Input id="name" type='text' value={form.color || ""} className="col-span-3"onChange={(e) => setForm({ ...form, color: e.target.value })} />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="username" className="text-right">
               Price
             </Label>
-            <Input id="username" value={form.data?.price || ""} type='number' className="col-span-3" onChange={(e) => setForm({ ...form, data: {...form.data, price: Number(e.target.value)}})} />
+            <Input id="username" value={form.price || ""} type='number' className="col-span-3" onChange={(e) => setForm({ ...form, price: Number(e.target.value) })} />
           </div>
         </div>
         <DialogFooter>
